@@ -33,7 +33,7 @@ public class FirstController {
             List<Train> trains = trainService.allTrains();
             ModelAndView modelAndView = new ModelAndView();
             modelAndView.setViewName("maintrain");
-           // modelAndView.addObject("trainsList", trains);
+            modelAndView.addObject("trainsList", trains);
             return modelAndView;
         }
 

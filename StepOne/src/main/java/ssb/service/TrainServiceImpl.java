@@ -13,18 +13,19 @@ import java.util.List;
 public class TrainServiceImpl implements TrainService{
 
 
-    private TrainDAO trainDAO ;
-    //=new TrainDAOImpl();
+    private TrainDAO trainDAO=new TrainDAOImpl();
 
 
 
         @Autowired
-        public void setTrainDAO(TrainDAO trainDAO){
+        public void setTrainDAO(TrainDAO trainDAO)
+        {
             this.trainDAO=trainDAO;
         }
     @Transactional
     @Override
-    public List<Train> allTrains() {
+    public List<Train> allTrains()
+    {
         return trainDAO.allTrains();
     }
 
