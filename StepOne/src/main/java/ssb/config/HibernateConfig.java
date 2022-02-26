@@ -30,8 +30,8 @@ public class HibernateConfig {
     private Properties hibernateProperties() {
         //этот метод нужен чтобы представить свойства Hibernate в виде объекта Properties
         Properties properties= new Properties();
-        properties.put("hibernate.dialect", environment.getRequiredProperty("hibernate.dialec"));
-        properties.put("hibernate.snow_sql", environment.getRequiredProperty("hibernate.snow_sql"));
+        properties.put("hibernate.dialect", environment.getRequiredProperty("hibernate.dialect"));
+        properties.put("hibernate.show_sql", environment.getRequiredProperty("hibernate.show_sql"));
         return properties;
     }
     @Bean
