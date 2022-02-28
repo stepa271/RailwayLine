@@ -19,17 +19,14 @@ import java.util.List;
 public class FirstController {
     /*  класс, который будет обрабатывать запросы, т.е. контроллер */
 
-            private TrainService trainService;
-            //=                new TrainServiceImpl();
+            private TrainService trainService;//= new TrainServiceImpl();
         @Autowired
     public void setTrainService(TrainService trainService) {
         this.trainService = trainService;
     }
-
     // главный метод для отображения страницы
         @RequestMapping(method = RequestMethod.GET)
         public ModelAndView allTrains() {
-
             List<Train> trains = trainService.allTrains();
             ModelAndView modelAndView = new ModelAndView();
             modelAndView.setViewName("maintrain");
@@ -40,21 +37,18 @@ public class FirstController {
 
         @RequestMapping(value = "/", method = RequestMethod.GET)
         public ModelAndView allTrain() {
+
             ModelAndView modelAndView = new ModelAndView();
             modelAndView.setViewName("maintrain");
+
             return modelAndView;
         }
-
-
-
         @RequestMapping(value = "/edit", method = RequestMethod.GET)
         public ModelAndView editPage() {
             ModelAndView modelAndView = new ModelAndView();
             modelAndView.setViewName("editpage");
             return modelAndView;
         }
-
-
         @RequestMapping(value = "/edit/{id}", method = RequestMethod.GET)
         public ModelAndView editPage(@PathVariable("id") int id) {
             Train train = trainService.getById(id);
@@ -83,7 +77,6 @@ public class FirstController {
             trainService.add(train);
             return modelAndView;
         }
-
         @RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
             public ModelAndView deleteTrain(@PathVariable("id") int id){
             ModelAndView modelAndView= new ModelAndView();

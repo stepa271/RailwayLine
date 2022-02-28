@@ -70,7 +70,7 @@ Edit page
         <input type="hidden" name="id" value="${train.id}">
     </c:if>
     <label for="numberTrain">Number Train</label>
-    <input type="text" name="numberTrain" id="numberTrain">
+    <input type="text" name="NumberTrain" id="numberTrain" value="${trainsList.numberTrain}">
     <label for="idStation">Id Station</label>
     <input type="text" name="idStation" id="idStation">
     <label for="countPlace">Count place</label>

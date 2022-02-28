@@ -7,6 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page isELIgnored="false"%>
 <html>
 <head>
     <title>TRAINS</title>
@@ -36,9 +37,20 @@
             </td>
         </tr>
     </c:forEach>
-     <c:forEach var="temp" items="${trainsList}">
+
+    <%--Обратите внимание: мы в атрибут var поместили
+    просто переменную. Мы можем называть ее по
+    собственному желанию. Потом мы используем эту
+    переменную в выражении типа ${}.
+    В атрибут items мы поместили то название атрибута,
+    которое мы создали и поместили в метод setAttribute.
+     Будьте внимательны, когда меняете названия атрибутов
+     в сервлете. Тогда его придется поменять и в jsp.
+    --%>
+
+     <c:forEach var="temp" items="${trainsList}" >
          <tr>
-             <td>${trainsList.id} </td>
+             <td>${temp.id}</td>
              <td>${temp.numbeTtrain}</td>
              <td>${temp.idStation}</td>
              <td>${temp.countPlace}</td>
@@ -51,11 +63,7 @@
     </c:forEach>
 </table>
 
-<h2>Add</h2>
-<c:url value="/add" var="add"/>
-<a href="${add} >Add new train</a>
- <h3> <p>Today <%= new java.util.Date() %></p> </h3>
 
-
+</table>
 </body>
 </html>

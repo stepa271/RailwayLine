@@ -6,7 +6,9 @@
         <datasource-map>
           <unit-entry name="sessionFactory" value="42b73be6-4b68-4364-9fcc-abb31e01dea7" />
         </datasource-map>
-        <naming-strategy-map />
+        <naming-strategy-map>
+          <unit-entry name="sessionFactory" />
+        </naming-strategy-map>
       </configuration>
     </facet>
   </component>
