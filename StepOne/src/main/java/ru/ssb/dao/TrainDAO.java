@@ -1,9 +1,8 @@
-package ssb.dao;
+package ru.ssb.dao;
 
 
-import ssb.model.Train;
+import ru.ssb.model.Train;
 
-import java.lang.reflect.Field;
 import java.util.List;
 
 public interface TrainDAO {

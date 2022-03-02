@@ -1,4 +1,4 @@
-package ssb;
+package ru.ssb;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

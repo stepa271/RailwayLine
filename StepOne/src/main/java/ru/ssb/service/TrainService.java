@@ -1,6 +1,6 @@
-package ssb.service;
+package ru.ssb.service;
 
-import ssb.model.Train;
+import ru.ssb.model.Train;
 import java.util.List;
 
 public interface TrainService {

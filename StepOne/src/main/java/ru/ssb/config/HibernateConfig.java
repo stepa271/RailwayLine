@@ -1,4 +1,4 @@
-package ssb.config;
+package ru.ssb.config;
 import org.apache.tomcat.dbcp.dbcp2.BasicDataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -15,14 +15,15 @@ import javax.sql.DataSource;
 import java.util.Properties;
 
 @Configuration
-@ComponentScan(basePackages = "ssb")
+@ComponentScan(basePackages = "ru.ssb")
 @EnableTransactionManagement
 @PropertySource(value = "classpath:db.properties") //подключение файла свойств, который мы недавно создавал
 public class HibernateConfig {
     private Environment environment;
 
-    @Autowired
+
     //для того, чтобы получить свойства из property файла
+    @Autowired
     public void setEnvironment(Environment environment){
         this.environment=environment;
     }

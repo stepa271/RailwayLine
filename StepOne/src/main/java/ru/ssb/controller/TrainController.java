@@ -1,7 +1,6 @@
-package ssb.controller;
+package ru.ssb.controller;
 
 
-import org.springframework.beans.factory.annotation.Autowire;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -9,18 +8,17 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
-import ssb.model.Train;
-import ssb.service.TrainService;
-import ssb.service.TrainServiceImpl;
+import ru.ssb.service.TrainService;
+import ru.ssb.model.Train;
 
 import java.util.List;
 
 @Controller
-public class FirstController {
+public class TrainController {
     /*  класс, который будет обрабатывать запросы, т.е. контроллер */
 
-            private TrainService trainService;//= new TrainServiceImpl();
-        @Autowired
+    private TrainService trainService;//= new TrainServiceImpl();
+    @Autowired
     public void setTrainService(TrainService trainService) {
         this.trainService = trainService;
     }
@@ -83,6 +81,13 @@ public class FirstController {
             modelAndView.setViewName("redirect:/");
             Train train=trainService.getById(id);
             trainService.delete(train);
+            return modelAndView;
+        }
+
+        @RequestMapping(value = "/delete", method = RequestMethod.GET)
+            public ModelAndView deletePage(){
+        ModelAndView modelAndView=new ModelAndView();
+        modelAndView.setViewName("/delete");
             return modelAndView;
         }
 }

@@ -1,4 +1,4 @@
-package ssb.model;
+package ru.ssb.model;
 
 
 import javax.persistence.*;
@@ -8,7 +8,7 @@ import javax.persistence.*;
 @Table(name="train")
 public class Train {
     @Id
-    @Column(name = "idtrain")
+    @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     @Column(name ="number_train")
@@ -18,7 +18,17 @@ public class Train {
     @Column(name = "count_place")
     private int countPlace;
 
+    @Id
+    @Column(name = "id", nullable = false)
+    private Integer id1;
 
+    public Integer getId1() {
+        return id1;
+    }
+
+    public void setId1(Integer id1) {
+        this.id1 = id1;
+    }
 
 
     public String getNumberTrain() {

@@ -1,14 +1,18 @@
-package ssb.config;
+package ru.ssb.config;
 
 
 
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.web.filter.CharacterEncodingFilter;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
 import javax.servlet.Filter;
 
-public class AppInitializer  extends AbstractAnnotationConfigDispatcherServletInitializer
+public class AppInitializer
+        extends AbstractAnnotationConfigDispatcherServletInitializer
 {
+
+
     protected Filter[] getServletFilters() {
         CharacterEncodingFilter characterEncodingFilter = new CharacterEncodingFilter();
         characterEncodingFilter.setEncoding("UTF-8");
@@ -32,9 +36,7 @@ public class AppInitializer  extends AbstractAnnotationConfigDispatcherServletIn
     }
 
     @Override
-    protected String[] getServletMappings()
-    {
-        return new String[]{"/"};
-    }
+    protected String[] getServletMappings() {
+        return new String[]{"/"};}
 
 }

@@ -1,4 +1,4 @@
-package ssb.config;
+package ru.ssb.config;
 
 
 import org.springframework.context.annotation.Bean;
@@ -10,7 +10,7 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 @Configuration
 @EnableWebMvc
-@ComponentScan(basePackages ="ssb")
+@ComponentScan(basePackages ="ru.ssb")
 public class WebConfig {
 
     @Bean
