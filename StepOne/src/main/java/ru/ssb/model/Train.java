@@ -8,43 +8,18 @@ import javax.persistence.*;
 @Table(name="train")
 public class Train {
     @Id
-    @Column(name = "id")
+    @Column(name = "TRAIN_NUMBER")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
-    @Column(name ="number_train")
-    private String numberTrain;
-    @Column(name = "id_station")
-    private int idStation;
-    @Column(name = "count_place")
+    private int trainNumber;
+    @Column(name = "CAPACITY")
     private int countPlace;
 
-    @Id
-    @Column(name = "id", nullable = false)
-    private Integer id1;
-
-    public Integer getId1() {
-        return id1;
+    public int getTrainNumber() {
+        return trainNumber;
     }
 
-    public void setId1(Integer id1) {
-        this.id1 = id1;
-    }
-
-
-    public String getNumberTrain() {
-        return numberTrain;
-    }
-
-    public void setNumberTrain(String numberTrain) {
-        this.numberTrain = numberTrain;
-    }
-
-    public int getIdStation() {
-        return idStation;
-    }
-
-    public void setIdStation(int idStation) {
-        this.idStation = idStation;
+    public void setTrainNumber(int trainNumber) {
+        this.trainNumber = trainNumber;
     }
 
     public int getCountPlace() {
@@ -53,22 +28,5 @@ public class Train {
 
     public void setCountPlace(int countPlace) {
         this.countPlace = countPlace;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    @Override
-    public String toString(){
-
-        return "ID"+ getId()+"<br>"+
-                "Номер поезда:"+getNumberTrain()+"<br>"+
-                "Станция:"+getIdStation()+"<br>"+
-                "Количество мест:"+getCountPlace();
     }
 }

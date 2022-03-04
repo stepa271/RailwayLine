@@ -1,17 +1,17 @@
-package ru.ssb.service;
+package ru.ssb.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 import ru.ssb.dao.TrainDAO;
-import ru.ssb.dao.TrainDAOImpl;
+import ru.ssb.dao.impl.TrainDAOImpl;
 import ru.ssb.model.Train;
+import ru.ssb.service.TrainService;
 
 import javax.transaction.Transactional;
 import java.util.List;
 
 @Service
-public class TrainServiceImpl implements TrainService{
+public class TrainServiceImpl implements TrainService {
 
 
     private TrainDAO trainDAO=new TrainDAOImpl();

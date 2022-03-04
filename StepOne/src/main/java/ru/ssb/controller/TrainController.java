@@ -18,81 +18,65 @@ public class TrainController {
     /*  класс, который будет обрабатывать запросы, т.е. контроллер */
 
     private TrainService trainService;//= new TrainServiceImpl();
+
     @Autowired
     public void setTrainService(TrainService trainService) {
         this.trainService = trainService;
     }
+
     // главный метод для отображения страницы
-        @RequestMapping(method = RequestMethod.GET)
-        public ModelAndView allTrains() {
-            List<Train> trains = trainService.allTrains();
-            ModelAndView modelAndView = new ModelAndView();
-            modelAndView.setViewName("maintrain");
-            modelAndView.addObject("trainsList", trains);
-            return modelAndView;
-        }
+    @RequestMapping(method = RequestMethod.GET)
+    public ModelAndView allTrains() {
+        List<Train> trains = trainService.allTrains();
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("maintrain");
+        modelAndView.addObject("trainsList", trains);
+        return modelAndView;
+    }
 
 
-        @RequestMapping(value = "/", method = RequestMethod.GET)
-        public ModelAndView allTrain() {
+    @RequestMapping(value = "/", method = RequestMethod.GET)
+    public ModelAndView allTrain() {
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("maintrain");
+        return modelAndView;
+    }
 
-            ModelAndView modelAndView = new ModelAndView();
-            modelAndView.setViewName("maintrain");
+    @RequestMapping(value = "/edit", method = RequestMethod.GET)
+    public ModelAndView editPage() {
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("editpage");
+        return modelAndView;
+    }
 
-            return modelAndView;
-        }
-        @RequestMapping(value = "/edit", method = RequestMethod.GET)
-        public ModelAndView editPage() {
-            ModelAndView modelAndView = new ModelAndView();
-            modelAndView.setViewName("editpage");
-            return modelAndView;
-        }
-        @RequestMapping(value = "/edit/{id}", method = RequestMethod.GET)
-        public ModelAndView editPage(@PathVariable("id") int id) {
-            Train train = trainService.getById(id);
-            ModelAndView modelAndView = new ModelAndView();
-            modelAndView.setViewName("editPage");
-            modelAndView.addObject("train", trainService.getById(id));
-            return modelAndView;
-        }
-        @RequestMapping(value = "/edit", method = RequestMethod.POST)
-        public ModelAndView editTrain(@ModelAttribute("train") Train train){
-            ModelAndView modelAndView= new ModelAndView();
-            modelAndView.setViewName("redirect:/");
-            trainService.edit(train);
-            return modelAndView;
-        }
-        @RequestMapping(value = "/add",method = RequestMethod.GET)
-            public ModelAndView addPage() {
-            ModelAndView modelAndView=new ModelAndView();
-            modelAndView.setViewName("editPage");
-            return modelAndView;
-        }
-        @RequestMapping(value = "/add", method = RequestMethod.POST)
-            public ModelAndView addTrain(@ModelAttribute("train") Train train){
-            ModelAndView modelAndView = new ModelAndView();
-            modelAndView.setViewName("redirect:/");
-            trainService.add(train);
-            return modelAndView;
-        }
-        @RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
-            public ModelAndView deleteTrain(@PathVariable("id") int id){
-            ModelAndView modelAndView= new ModelAndView();
-            modelAndView.setViewName("redirect:/");
-            Train train=trainService.getById(id);
-            trainService.delete(train);
-            return modelAndView;
-        }
+    @RequestMapping(value = "/edit", method = RequestMethod.POST)
+    public ModelAndView editTrain(@ModelAttribute("train") Train train) {
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("redirect:/");
+        trainService.edit(train);
+        return modelAndView;
+    }
 
-        @RequestMapping(value = "/delete", method = RequestMethod.GET)
-            public ModelAndView deletePage(){
-        ModelAndView modelAndView=new ModelAndView();
-        modelAndView.setViewName("/delete");
-            return modelAndView;
-        }
+
+
+    @RequestMapping(value = "/add", method = RequestMethod.GET)
+    public ModelAndView addPage() {
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("editPage");
+        return modelAndView;
+    }
+
+    @RequestMapping(value = "/add", method = RequestMethod.POST)
+    public ModelAndView addTrain(@ModelAttribute("train") Train train) {
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("redirect:/");
+        trainService.add(train);
+        return modelAndView;
+    }
+
 }
 
-    // по сути заглушка. пока нет подключения к БД
+// по сути заглушка. пока нет подключения к БД
    /* private static Train train;
     static {
         train=new Train();
@@ -112,5 +96,30 @@ public class TrainController {
     }
 */
 
+/*
+ @RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
+            public ModelAndView deleteTrain(@PathVariable("id") int id){
+            ModelAndView modelAndView= new ModelAndView();
+            modelAndView.setViewName("redirect:/");
+            Train train=trainService.getById(id);
+            trainService.delete(train);
+            return modelAndView;
+        }
+
+        @RequestMapping(value = "/delete", method = RequestMethod.GET)
+            public ModelAndView deletePage(){
+        ModelAndView modelAndView=new ModelAndView();
+        modelAndView.setViewName("/delete");
+            return modelAndView;
+        }
+    @RequestMapping(value = "/edit/{id}", method = RequestMethod.GET)
+    public ModelAndView editPage(@PathVariable("id") int id) {
+        Train train = trainService.getById(id);
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("editPage");
+        modelAndView.addObject("train", trainService.getById(id));
+        return modelAndView;
+    }
+ */
 
 

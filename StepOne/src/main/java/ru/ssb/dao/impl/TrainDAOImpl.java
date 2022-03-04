@@ -1,10 +1,11 @@
-package ru.ssb.dao;
+package ru.ssb.dao.impl;
 
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import ru.ssb.dao.TrainDAO;
 import ru.ssb.model.Train;
 
 import java.util.List;
